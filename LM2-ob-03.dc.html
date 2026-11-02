@@ -6,9 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#ece8e3">
-<style>html{height:100%;overflow:hidden;background:#ece8e3;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:844px;overflow:hidden;zoom:var(--z,1)}</style>
-<script>(function(){function f(){var v=window.visualViewport,w=v?v.width:innerWidth,h=v?v.height:innerHeight;document.documentElement.style.setProperty("--z",Math.min(w/390,h/844))}f();addEventListener("resize",f);window.visualViewport&&visualViewport.addEventListener("resize",f)})();</script>
+<meta name="theme-color" content="#FBF8F4">
+<style>html{height:100%;overflow:hidden;background:#FBF8F4;display:flex;align-items:center;justify-content:center}body{flex:none;width:390px;height:var(--h,844px);overflow:hidden;zoom:var(--z,1)}</style>
+<script>(function(){var lw=0;function f(){var w=innerWidth,h=innerHeight;if(w===lw)return;lw=w;var z=w/390,H=h/z;if(H<640){z=h/640;H=640}var r=document.documentElement.style;r.setProperty("--z",z);r.setProperty("--h",Math.floor(H)+"px")}f();addEventListener("resize",f);addEventListener("orientationchange",function(){lw=0;setTimeout(f,300)})})();</script>
 <meta name="robots" content="noindex">
 <script src="./support.js"></script>
 </head>
@@ -81,7 +81,7 @@ a{color:#3F1A20;text-decoration:none}a:hover{color:#3F1A20}
 .btn{background:#5B1F26;color:#ffffff}.btn:hover{color:#ffffff}.btn.soft,.soft{background:#F2E9E3;color:#3F1A20}.soft:hover{color:#3F1A20}.field.focus{border:2px solid #5B1F26}.chip.off{background:#F2E9E3;color:#3F1A20}
 </style>
 </helmet>
-<div style="width: 390px; height: 844px; box-sizing: border-box; background: #FBF8F4; color: #3F1A20; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
+<div style="width: 390px; height: var(--h, 844px); box-sizing: border-box; background: #FBF8F4; color: #3F1A20; font-family: 'Rubik', system-ui, sans-serif; position: relative; overflow: hidden">
 <a href="LM2-ob-me.dc.html" class="ib" aria-label="Zurück" style="position: absolute; left: 16px; top: 52px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" style="width: 22px; height: 22px"><path d="M15 5l-7 7 7 7"></path></svg></a>
 <div aria-label="Schritt 1 von 3" role="img" style="position: absolute; left: 0; right: 0; top: 71px; height: 6px; display: flex; justify-content: center; gap: 6px"><span style="width: 6px; height: 6px; border-radius: 999px; background: #3F1A20"></span><span style="width: 6px; height: 6px; border-radius: 999px; background: #D8C9C4"></span><span style="width: 6px; height: 6px; border-radius: 999px; background: #D8C9C4"></span></div>
 <div style="position: absolute; left: 16px; right: 16px; top: 120px"><h1 class="h0" style="text-align: left; margin: 0 0 24px">Wie viele Kinder<br>hast du?</h1><div role="group" aria-label="Anzahl Kinder" data-count="{{count}}" style="position: relative; margin: 24px -16px 0; height: 128px; overflow: hidden; touch-action: pan-y; user-select: none">
