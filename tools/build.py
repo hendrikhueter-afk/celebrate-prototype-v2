@@ -21,7 +21,10 @@ BLOB = re.compile(r"/_blob/([a-f0-9]{32})")
 def page_boards(raw):
     canvas = json.load(open(os.path.join(raw, "project", "canvas.json")))
     pid = CFG["canvas_page_id"]
-    return [k for k in canvas["order"] if canvas["boards"][k].get("page") == pid]
+    w = CFG.get("screen_width")
+    # only phone-size boards; wide boards (pattern sheets, palette comparisons) are not screens
+    return [k for k in canvas["order"] if canvas["boards"][k].get("page") == pid
+            and (not w or canvas["boards"][k].get("w") == w)]
 
 
 def head_block(min_h):
@@ -103,7 +106,9 @@ def main():
         path = os.path.join(REPO, page)
         if os.path.exists(path):
             t = open(path).read()
-            open(path, "w").write(re.sub(r'<iframe src="[^"]*"', '<iframe src="%s"' % start, t))
+            t = re.sub(r'<iframe src="[^"]*"', '<iframe src="%s"' % start, t)
+            t = re.sub(r"location\.replace\('[^']*'\)", "location.replace('%s')" % start, t)
+            open(path, "w").write(t)
     print("BUILT %d screens, %d images" % (len(boards), len(blobs)))
 
 
